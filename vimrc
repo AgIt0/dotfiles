@@ -26,7 +26,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
 Bundle 'koron/nyancat-vim'
 Bundle 'vim-scripts/ruby-matchit'
-
+Bundle 'scrooloose/nerdtree'
 " Clojure
 Bundle 'tpope/vim-foreplay'
 Bundle 'tpope/vim-classpath'
@@ -383,3 +383,9 @@ if has("autocmd")
   augroup END
 
 endif " has("autocmd")
+
+colorscheme vividchalk
+
+" Color
+:set t_Co=256
+:set background=dark
