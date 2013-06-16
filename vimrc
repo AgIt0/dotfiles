@@ -5,6 +5,9 @@ call pathogen#helptags()
 " ========================================================================
 " Vundle stuff
 " ========================================================================
+set nocompatible "Use Vim's default settings, not Vi's
+filetype off "required by vundle
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
