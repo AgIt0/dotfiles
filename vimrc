@@ -30,6 +30,9 @@ Bundle 'wincent/Command-T'
 Bundle 'koron/nyancat-vim'
 Bundle 'vim-scripts/ruby-matchit'
 Bundle 'scrooloose/nerdtree'
+Bundle 'godlygeek/tabular'
+Bundle 'altercation/vim-colors-solarized'
+
 " Clojure
 Bundle 'tpope/vim-foreplay'
 Bundle 'tpope/vim-classpath'
@@ -167,7 +170,7 @@ set tags=./tags;
 " set iskeyword-=_
 
 " Use Silver Searcher instead of grep
-set grepprg=ag
+set grepprg=ack-grep\ -a
 
 " Get rid of the delay when hitting esc!
 set noesckeys
@@ -392,3 +395,6 @@ colorscheme vividchalk
 " Color
 :set t_Co=256
 :set background=dark
+
+let g:solarized_termcolors=256
+let g:NERDTreeDirArrows = 0
