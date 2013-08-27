@@ -38,6 +38,9 @@ Bundle 'tpope/vim-foreplay'
 Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
 
+"Elixir
+Bundle 'elixir-lang/vim-elixir'
+
 " ================
 " Ruby stuff
 " ================
