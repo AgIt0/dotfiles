@@ -32,6 +32,7 @@ Bundle 'vim-scripts/ruby-matchit'
 Bundle 'scrooloose/nerdtree'
 Bundle 'godlygeek/tabular'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'nelstrom/vim-blackboard'
 
 " Clojure
 Bundle 'tpope/vim-foreplay'
@@ -109,7 +110,8 @@ map <Leader>st :!ruby -Itest % -n "//"<left><left>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
 map <Leader>t :w<cr>:call RunCurrentTest()<CR>
-map <Leader>y :!rspec --drb %<cr>
+map <Leader>y "+y<cr>
+map <Leader>fy :%y+<cr>
 map <Leader>u :Runittest<cr>
 map <Leader>vc :RVcontroller<cr>
 map <Leader>vf :RVfunctional<cr>
@@ -338,7 +340,7 @@ function! OpenFactoryFile()
 endfunction
 
 " Set gutter background to black
-highlight SignColumn ctermbg=black
+" highlight SignColumn ctermbg=black
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE (thanks Gary Bernhardt)
@@ -393,11 +395,12 @@ if has("autocmd")
 
 endif " has("autocmd")
 
-colorscheme vividchalk
 
 " Color
-:set t_Co=256
-:set background=dark
+set t_Co=16
+set background=dark
 
-let g:solarized_termcolors=256
+" let g:solarized_termcolors=16
 let g:NERDTreeDirArrows = 0
+colorscheme solarized
+call togglebg#map("<F5>")
