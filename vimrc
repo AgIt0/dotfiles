@@ -33,6 +33,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'godlygeek/tabular'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nelstrom/vim-blackboard'
+Bundle 'tomasr/molokai'
+Bundle 'airblade/vim-gitgutter.git'
 
 " Clojure
 Bundle 'tpope/vim-foreplay'
@@ -397,7 +399,7 @@ endif " has("autocmd")
 
 
 " Color
-set t_Co=16
+set t_Co=256
 set background=dark
 
 " let g:solarized_termcolors=16

@@ -6,6 +6,10 @@ elif [[ $platform == 'Darwin' ]]; then
   alias a='ls -lrthG'
 fi
 
+#work
+alias sixt="/home/agit0/railsprojects/sixt/sixt-bulgaria/sixt_site/sixt.sh"
+alias ge="cd /home/agit0/railsprojects/gemseek-dashboard"
+alias gew="/home/agit0/railsprojects/gemseek-dashboard/gemseek-tmux.sh"
 
 #solarized fix
 alias tmux="TERM=screen-256color-bce tmux"
@@ -45,7 +49,6 @@ alias gdc='git diff --cached'
 alias gdm='git diff master'
 alias get='sudo apt-get install'
 alias gg='git lg'
-alias gpush='echo "Use gp!" && git push'
 alias gp='git push'
 alias gpf='git push -f'
 alias gpr='git pull --rebase'
@@ -92,7 +95,6 @@ alias sc='staging-console'
 alias so='source ~/.dotfiles/zsh/aliases'
 alias sp='safepush'
 alias speaking='cd ~/Dropbox/speaking'
-alias ss='ruby app.rb'
 alias startpostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias startredis='redis-server /usr/local/etc/redis.conf &'
 alias stoppostgres='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log stop'
