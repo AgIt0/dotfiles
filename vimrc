@@ -34,7 +34,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nelstrom/vim-blackboard'
 Bundle 'tomasr/molokai'
-Bundle 'airblade/vim-gitgutter.git'
+Bundle 'vim-scripts/php.vim-html-enhanced.git'
 
 " Clojure
 Bundle 'tpope/vim-foreplay'
