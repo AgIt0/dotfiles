@@ -26,14 +26,20 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'wincent/Command-T'
 Bundle 'koron/nyancat-vim'
 Bundle 'vim-scripts/ruby-matchit'
 Bundle 'scrooloose/nerdtree'
 Bundle 'godlygeek/tabular'
+Bundle 'kien/ctrlp.vim'
+Bundle 'msanders/snipmate.vim'
+
+"colorschemes
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nelstrom/vim-blackboard'
 Bundle 'tomasr/molokai'
+Bundle 'croaky/vim-colors-github'
+
+"php
 Bundle 'vim-scripts/php.vim-html-enhanced.git'
 
 " Clojure
@@ -55,6 +61,7 @@ augroup myfiletypes
   autocmd!
   " autoindent with two spaces, always expand tabs
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+  autocmd FileType php set ai sw=4 sts=4 et
 augroup END
 " ================
 
@@ -84,9 +91,8 @@ map <Leader>gw :!git add . && git commit -m 'WIP' && git push<cr>
 map <Leader>f :call OpenFactoryFile()<CR>
 map <Leader>fix :cnoremap % %<CR>
 map <Leader>fa :sp test/factories.rb<CR>
-map <Leader>h :CommandT<CR>
 map <Leader>i mmgg=G`m<CR>
-map <Leader>j :CommandT app/assets/javascripts<cr>client/
+map <Leader>j :CtrlP app/assets/javascripts<cr>client/
 map <Leader>l oconsole.log 'debugging'<esc>:w<cr>
 map <Leader>m :Rmodel 
 map <Leader>nn :sp ~/Dropbox/notes/programming_notes.txt<cr>
@@ -95,7 +101,7 @@ map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
 map <Leader>pn :sp ~/Dropbox/work/thoughtbot/notes/project-notes.txt<cr>
 map <Leader>ra :%s/
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
-map <Leader>rf :CommandTFlush<CR>:CommandT<CR>
+map <Leader>rf :CtrlPClearCache<CR>:CtrlP<CR>
 map <Leader>rs :vsp <C-r>#<cr><C-w>w
 map <Leader>rt q:?!ruby<cr><cr>
 map <Leader>rw :%s/\s\+$//<cr>:w<cr>
@@ -124,6 +130,7 @@ map <Leader>vm :RVmodel<cr>
 map <Leader>vv :RVview<cr>
 map <Leader>w <C-w>w
 map <Leader>x :exec getline(".")<cr>
+map <Leader>my :sp $MYVIMRC<cr>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
@@ -177,7 +184,8 @@ set tags=./tags;
 " set iskeyword-=_
 
 " Use Silver Searcher instead of grep
-set grepprg=ack-grep\ -a
+" set grepprg=ack-grep\ -a
+set grepprg=ack
 
 " Get rid of the delay when hitting esc!
 set noesckeys
@@ -320,9 +328,6 @@ endfunction
 
 " set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
-let g:CommandTMaxHeight=50
-let g:CommandTMatchWindowAtTop=1
-
 " Don't wait so long for the next keypress (particularly in ambigious Leader
 " situations.
 set timeoutlen=500
@@ -400,9 +405,14 @@ endif " has("autocmd")
 
 " Color
 set t_Co=256
+let g:solarized_termtrans = 1
 set background=dark
 
-" let g:solarized_termcolors=16
+" let g:solarized_termcolors=256
 let g:NERDTreeDirArrows = 0
 colorscheme solarized
 call togglebg#map("<F5>")
+
+"testing ctrlp
+let g:ctrlp_map = '<Leader>h'
+let g:ctrlp_show_hidden = 1
