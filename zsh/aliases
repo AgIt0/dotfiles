@@ -12,7 +12,7 @@ alias ge="cd /home/agit0/railsprojects/gemseek-dashboard"
 alias gew="/home/agit0/railsprojects/gemseek-dashboard/gemseek-tmux.sh"
 
 #solarized fix
-alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="TERM=screen-256color-bce tmux -u"
 
 alias amend="git commit --amend"
 alias asu="cd ~/code/rails/activesupport"
