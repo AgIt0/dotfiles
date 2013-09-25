@@ -71,6 +71,10 @@ export RUBY_GC_MALLOC_LIMIT=1000000000
 export RUBY_HEAP_FREE_MIN=500000
 export PATH="$HOME/bin:$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+#fix cyrillic in terminal
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
 # DO NOT EDIT BELOW THIS LINE
 
 # setopt promptsubst
