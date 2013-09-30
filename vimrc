@@ -131,6 +131,7 @@ map <Leader>vv :RVview<cr>
 map <Leader>w <C-w>w
 map <Leader>x :exec getline(".")<cr>
 map <Leader>my :sp $MYVIMRC<cr>
+map <Leader>r :w<cr> :!ruby %<cr>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
