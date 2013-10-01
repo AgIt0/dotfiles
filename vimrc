@@ -416,4 +416,5 @@ call togglebg#map("<F5>")
 
 "testing ctrlp
 let g:ctrlp_map = '<Leader>h'
+let g:ctrlp_match_window = 'top,order:btt,min:1,max:20'
 let g:ctrlp_show_hidden = 1
