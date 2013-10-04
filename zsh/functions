@@ -4,12 +4,12 @@ function git-new-remote-tracking {
 
 function git_branch_name {
   val=`git branch 2>/dev/null | grep '^*' | colrm 1 2`
-  echo "$val"
+    echo "$val"
 }
 
 function git-done {
   branch=`git_branch_name`
-  git checkout master && git merge $branch --ff-only && bundle install && rake db:migrate db:test:prepare && rake && git push && git branch -D $branch && git push origin :$branch
+    git checkout master && git merge $branch --ff-only && bundle install && rake db:migrate db:test:prepare && rake && git push && git branch -D $branch && git push origin :$branch
 }
 
 function git-nuke {
@@ -18,10 +18,10 @@ function git-nuke {
 
 function git-on-master {
   branch=`git_branch_name`
-  git checkout master && git pull --rebase 
-  git checkout $branch
-  git rebase master
-  }
+    git checkout master && git pull --rebase 
+    git checkout $branch
+    git rebase master
+}
 
 function g {
   if [[ $# > 0 ]]; then
@@ -44,4 +44,10 @@ function take {
 # Allows commit message without typing quotes (can't have quotes in the commit msg though).
 function gc {
   git commit -m "$*"
+}
+
+function colors {
+  for i in {0..255} ; do
+    printf "\x1b[38;5;${i}mcolour${i} "
+  done
 }

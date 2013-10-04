@@ -1,6 +1,6 @@
 [user]
 	name = Lyuben Petrov
-	email = lyuben.y.petrov@gmail.com`
+	email = lyuben.y.petrov@gmail.com
 [alias]
 	co = checkout
         cleanup = !git remote prune origin && git gc && git clean -df && git stash clear
