@@ -186,7 +186,7 @@ set tags=./tags;
 
 " Use Silver Searcher instead of grep
 " set grepprg=ack-grep\ -a
-set grepprg=ack
+set grepprg=ag
 
 " Get rid of the delay when hitting esc!
 set noesckeys
