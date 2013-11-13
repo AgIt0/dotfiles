@@ -33,6 +33,10 @@ Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 Bundle 'msanders/snipmate.vim'
 
+"notes
+Bundle 'xolox/vim-notes'
+Bundle 'xolox/vim-misc'
+
 "colorschemes
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nelstrom/vim-blackboard'
@@ -418,3 +422,6 @@ call togglebg#map("<F5>")
 let g:ctrlp_map = '<Leader>h'
 let g:ctrlp_match_window = 'top,order:btt,min:1,max:20'
 let g:ctrlp_show_hidden = 1
+
+"notes
+let g:notes_directories = ['~/notes']
