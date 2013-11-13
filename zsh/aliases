@@ -6,11 +6,12 @@ elif [[ $platform == 'Darwin' ]]; then
   alias a='ls -lrthG'
 fi
 
-
+alias delds="find ./ -name '.DS_Store' -exec rm {} \;"
 
 #solarized fix
 alias tmux="TERM=screen-256color-bce tmux -u"
 
+alias htdocs="cd /Applications/XAMPP/htdocs"
 alias amend="git commit --amend"
 alias asu="cd ~/code/rails/activesupport"
 alias aliases='vim ~/.dotfiles/zsh/aliases'
