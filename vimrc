@@ -65,7 +65,7 @@ augroup myfiletypes
   autocmd!
   " autoindent with two spaces, always expand tabs
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
-  autocmd FileType php set ai sw=4 sts=4 et
+  autocmd FileType php,python set ai sw=4 sts=4 et
 augroup END
 " ================
 
@@ -136,6 +136,7 @@ map <Leader>w <C-w>w
 map <Leader>x :exec getline(".")<cr>
 map <Leader>my :sp $MYVIMRC<cr>
 map <Leader>r :w<cr> :!ruby %<cr>
+map <Leader>rp :w<cr> :!python %<cr>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
