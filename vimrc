@@ -47,7 +47,7 @@ Bundle 'croaky/vim-colors-github'
 Bundle 'vim-scripts/php.vim-html-enhanced.git'
 
 " Clojure
-Bundle 'tpope/vim-foreplay'
+Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
 
