@@ -51,3 +51,13 @@ function colors {
     printf "\x1b[38;5;${i}mcolour${i} "
   done
 }
+
+function renamer {
+  if [ -z "$1" ]; then
+    echo "pass current extension followed by the new one without dots"
+  else 
+    for file in *.$1; do
+      mv "$file" "`basename $file .$1`.$2"
+    done
+  fi
+}
