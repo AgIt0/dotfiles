@@ -152,6 +152,7 @@ map <C-t> <esc>:tabnew<CR>
 map <C-x> <C-w>c
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
+imap jk <esc>
 
 " Emacs-like beginning and end of line.
 imap <c-e> <c-o>$
