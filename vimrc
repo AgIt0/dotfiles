@@ -32,7 +32,10 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 Bundle 'msanders/snipmate.vim'
+
+"statusline stuff
 Bundle 'bling/vim-airline'
+Bundle 'edkolev/tmuxline.vim'
 
 "notes
 Bundle 'xolox/vim-notes'
