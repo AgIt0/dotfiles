@@ -32,6 +32,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 Bundle 'msanders/snipmate.vim'
+Bundle 'bling/vim-airline'
 
 "notes
 Bundle 'xolox/vim-notes'
@@ -420,10 +421,26 @@ let g:NERDTreeDirArrows = 0
 colorscheme solarized
 call togglebg#map("<F5>")
 
-"testing ctrlp
+"ctrlp for the win
 let g:ctrlp_map = '<Leader>h'
 let g:ctrlp_match_window = 'top,order:btt,min:1,max:20'
 let g:ctrlp_show_hidden = 1
 
 "notes
 let g:notes_directories = ['~/notes']
+
+"airline
+let g:airline_theme = 'solarized'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:Powerline_symbols = 'fancy'
+let g:airline_exclude_filetypes=['netrw','diff','undotree','gundo','tagbar']
+let g:airline_linecolumn_prefix = ' '
+let g:airline_section_z='%3p%% '.g:airline_linecolumn_prefix.'%3l:%c'
+let g:airline_detect_whitespace=0 " turn off the whitespace extension
+"enable/disable showing a summary of changed hunks under source control.
+let g:airline#extensions#hunks#enabled = 1
+"enable/disable showing only non-zero hunks.
+let g:airline#extensions#hunks#non_zero_only = 1
+"set hunk count symbols.
+let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
