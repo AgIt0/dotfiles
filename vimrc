@@ -32,6 +32,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 Bundle 'msanders/snipmate.vim'
+Bundle 'AndrewRadev/ack.vim'
+
 
 "statusline stuff
 Bundle 'bling/vim-airline'
@@ -95,7 +97,7 @@ map <Leader>dr :e ~/Dropbox<cr>
 map <Leader>ec :e ~/code/
 map <Leader>gac :Gcommit -m -a ""<LEFT>
 map <Leader>gc :Gcommit -m ""<LEFT>
-map <Leader>gr :e ~/Dropbox/docs/journal<CR>
+map <Leader>gr :Ack 
 map <Leader>gs :Gstatus<CR>
 map <Leader>gw :!git add . && git commit -m 'WIP' && git push<cr>
 map <Leader>f :call OpenFactoryFile()<CR>
@@ -418,12 +420,12 @@ endif " has("autocmd")
 
 " Color
 set t_Co=256
-let g:solarized_termtrans = 1
+" let g:solarized_termtrans = 1
 set background=dark
 
 " let g:solarized_termcolors=256
 let g:NERDTreeDirArrows = 0
-colorscheme solarized
+colorscheme molokai
 call togglebg#map("<F5>")
 
 "ctrlp for the win
@@ -435,7 +437,7 @@ let g:ctrlp_show_hidden = 1
 let g:notes_directories = ['~/notes']
 
 "airline
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'molokai'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:Powerline_symbols = 'fancy'
