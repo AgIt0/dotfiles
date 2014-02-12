@@ -73,6 +73,7 @@ augroup myfiletypes
   autocmd!
   " autoindent with two spaces, always expand tabs
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+  " autoindent with four spaces, always expand tabs
   autocmd FileType php,python set ai sw=4 sts=4 et
 augroup END
 " ================
@@ -351,7 +352,7 @@ set timeoutlen=500
 autocmd BufNewFile,BufRead /Users/ben/code/levelup/*.rb set colorcolumn=100
 
 " Remove trailing whitespace on save for ruby files.
-au BufWritePre *.rb :%s/\s\+$//e
+au BufWritePre *.rb,*.scss :%s/\s\+$//e
 
 function! OpenFactoryFile()
   if filereadable("test/factories.rb")
@@ -427,6 +428,10 @@ set background=dark
 let g:NERDTreeDirArrows = 0
 colorscheme molokai
 call togglebg#map("<F5>")
+
+set cursorline
+au WinLeave * set nocursorline
+au WinEnter * set cursorline
 
 "ctrlp for the win
 let g:ctrlp_map = '<Leader>h'
