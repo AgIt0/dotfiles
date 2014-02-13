@@ -426,7 +426,10 @@ set background=dark
 
 " let g:solarized_termcolors=256
 let g:NERDTreeDirArrows = 0
+
+let g:molokai_original = 1
 colorscheme molokai
+
 call togglebg#map("<F5>")
 
 set cursorline
@@ -442,7 +445,7 @@ let g:ctrlp_show_hidden = 1
 let g:notes_directories = ['~/notes']
 
 "airline
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'powerlineish'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:Powerline_symbols = 'fancy'
