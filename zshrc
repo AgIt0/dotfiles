@@ -63,6 +63,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/usr/texbin
 PATH=$PATH:~/bin # Elixir
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+export EDITOR=/usr/bin/vim
 
 # Shaves about 0.5s off Rails boot time (when using perf patch). Taken from https://gist.github.com/1688857
 export RUBY_HEAP_MIN_SLOTS=1000000
