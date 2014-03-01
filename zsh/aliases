@@ -11,6 +11,8 @@ alias delds="find ./ -name '.DS_Store' -exec rm {} \;"
 #solarized fix
 alias tmux="TERM=screen-256color-bce tmux -u"
 
+alias myip="dig + short myip.opendns.com @resolver1.opendns.com | grep '^myip' | awk '{print \$5}'"
+alias vim='vim -w ~/.vimlog "$@"'
 alias htdocs="cd /Applications/XAMPP/htdocs"
 alias amend="git commit --amend"
 alias asu="cd ~/code/rails/activesupport"
@@ -109,6 +111,7 @@ alias vu='cd ~/code/vim-university'
 alias y='cd ~/code/ybuy'
 alias z='zeus'
 alias zs='zeus start'
+alias p='cd ~/play'
 
 # Heroku staging
 alias staging-console='heroku run console --remote staging'
