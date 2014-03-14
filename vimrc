@@ -48,6 +48,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'nelstrom/vim-blackboard'
 Bundle 'tomasr/molokai'
 Bundle 'croaky/vim-colors-github'
+Bundle 'jnurmine/Zenburn'
 
 "php
 Bundle 'vim-scripts/php.vim-html-enhanced.git'
@@ -110,7 +111,7 @@ map <Leader>l oconsole.log 'debugging'<esc>:w<cr>
 map <Leader>m :Rmodel 
 map <Leader>nn :sp ~/Dropbox/notes/programming_notes.txt<cr>
 map <Leader>o :call RunCurrentLineInTest()<CR>
-map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
+map <Leader>p :set paste<CR>"*]p:set nopaste<cr>
 map <Leader>pn :sp ~/Dropbox/work/thoughtbot/notes/project-notes.txt<cr>
 map <Leader>ra :%s/
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
@@ -131,8 +132,8 @@ map <Leader>st :!ruby -Itest % -n "//"<left><left>
 map <Leader>su :RSunittest 
 map <Leader>sv :RSview 
 map <Leader>t :w<cr>:call RunCurrentTest()<CR>
-map <Leader>y "+y<cr>
-map <Leader>fy :%y+<cr>
+map <Leader>y "+y
+map <Leader>fy :%y+
 map <Leader>u :Runittest<cr>
 map <Leader>vc :RVcontroller<cr>
 map <Leader>vf :RVfunctional<cr>
