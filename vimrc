@@ -133,7 +133,7 @@ map <Leader>su :RSunittest
 map <Leader>sv :RSview 
 map <Leader>t :w<cr>:call RunCurrentTest()<CR>
 map <Leader>y "+y
-map <Leader>fy :%y+
+map <Leader>fy :%y+<cr>
 map <Leader>u :Runittest<cr>
 map <Leader>vc :RVcontroller<cr>
 map <Leader>vf :RVfunctional<cr>
@@ -352,8 +352,8 @@ set timeoutlen=500
 " Don't go past 100 chars on levelup:
 autocmd BufNewFile,BufRead /Users/ben/code/levelup/*.rb set colorcolumn=100
 
-" Remove trailing whitespace on save for ruby files.
-au BufWritePre *.rb,*.scss :%s/\s\+$//e
+" Remove trailing whitespace on save for ruby,sass,haml,coffeescript files.
+au BufWritePre *.rb,*.scss,*.haml,*.coffee :%s/\s\+$//e
 
 function! OpenFactoryFile()
   if filereadable("test/factories.rb")
