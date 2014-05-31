@@ -63,6 +63,9 @@ Bundle 'kien/rainbow_parentheses.vim'
 "Elixir
 Bundle 'elixir-lang/vim-elixir'
 
+"Io
+Bundle 'andreimaxim/vim-io'
+
 " ================
 " Ruby stuff
 " ================
@@ -225,6 +228,8 @@ set nofoldenable " Say no to code folding...
 
 command! Q q " Bind :Q to :q
 command! Qall qall 
+
+command! ICantTakeThisAnymore !subl %
 
 
 " Disable Ex mode
