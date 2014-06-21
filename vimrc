@@ -97,7 +97,7 @@ map <Leader>cm :Rjmodel client/
 map <Leader>ct :Rtemplate client/
 map <Leader>cv :Rjview client/
 map <Leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
-map <Leader>d odebugger<cr>puts 'debugger'<esc>:w<cr>
+map <Leader>d obyebug<cr>puts 'byebug'<esc>:w<cr>
 map <Leader>dr :e ~/Dropbox<cr>
 map <Leader>ec :e ~/code/
 map <Leader>gac :Gcommit -m -a ""<LEFT>
