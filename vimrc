@@ -33,6 +33,8 @@ Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'AndrewRadev/ack.vim'
+Bundle 'vim-scripts/ScrollColors'
+Bundle 'ngmy/vim-rubocop'
 
 
 "statusline stuff
@@ -49,6 +51,7 @@ Bundle 'nelstrom/vim-blackboard'
 Bundle 'tomasr/molokai'
 Bundle 'croaky/vim-colors-github'
 Bundle 'jnurmine/Zenburn'
+Bundle 'sjl/badwolf'
 
 "php
 Bundle 'vim-scripts/php.vim-html-enhanced.git'
@@ -65,6 +68,15 @@ Bundle 'elixir-lang/vim-elixir'
 
 "Io
 Bundle 'andreimaxim/vim-io'
+
+"Prolog
+Bundle 'adimit/prolog.vim'
+
+"Scala
+Bundle 'derekwyatt/vim-scala'
+
+"Haskell
+Bundle 'vim-scripts/haskell.vim'
 
 " ================
 " Ruby stuff
@@ -150,6 +162,7 @@ map <Leader>x :exec getline(".")<cr>
 map <Leader>my :sp $MYVIMRC<cr>
 map <Leader>r :w<cr> :!ruby %<cr>
 map <Leader>rp :w<cr> :!python %<cr>
+map <Leader>op :call OpenFileFolder()<CR>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
@@ -319,6 +332,11 @@ function! SetTestFileWithLine()
 endfunction
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! OpenFileFolder()
+  let file_folder = expand('%:p:h')
+  silent exec "!open" file_folder
+  redraw!
+endfunction
 
 inoremap <Tab> <C-P>
 
@@ -465,3 +483,26 @@ let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 1
 "set hunk count symbols.
 let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
+
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+
+let g:rbpt_max = 16
+
+let g:vimrubocop_config = '~/.rubocop.yml'
