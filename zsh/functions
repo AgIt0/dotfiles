@@ -41,11 +41,6 @@ function take {
   cd $1
 }
 
-# Allows commit message without typing quotes (can't have quotes in the commit msg though).
-function gc {
-  git commit -m "$*"
-}
-
 function colors {
   for i in {0..255} ; do
     printf "\x1b[38;5;${i}mcolour${i} "
@@ -59,5 +54,13 @@ function renamer {
     for file in *.$1; do
       mv "$file" "`basename $file .$1`.$2"
     done
+  fi
+}
+
+function remaining_hours { 
+  if [ -z "$1" ]; then
+    echo "pass the mp3 files"
+  else
+    mp3info -p "%S\n" $@ | awk '{s+=$1}END{print s/60/60}'
   fi
 }
