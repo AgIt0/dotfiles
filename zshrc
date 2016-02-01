@@ -5,7 +5,7 @@ ZSH=$HOME/.dotfiles/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="nebirhos"
 
 # Never know when you're gonna need to popd!
 setopt AUTO_PUSHD
@@ -68,6 +68,10 @@ export EDITOR=/usr/bin/vim
 export PATH="$HOME/bin:$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+#nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
+
 #fix cyrillic in terminal
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
@@ -81,3 +85,4 @@ export LANG=en_US.UTF-8
 # promptinit
 # 
 # prompt grb
+eval $(thefuck --alias)
