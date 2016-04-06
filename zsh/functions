@@ -64,3 +64,12 @@ function remaining_hours {
     mp3info -p "%S\n" $@ | awk '{s+=$1}END{print s/60/60}'
   fi
 }
+
+function convert_raw_to_jpg {
+  mkdir -p output 2> /dev/null
+  find . -type f -iname '*.CR2' -print0 | \
+    xargs -0 -n 1 -P 2 -I {} \
+    /usr/local/bin/convert -verbose -units PixelsPerInch cr8:{} \
+    -colorspace sRGB -resize 2560x2650 -set filename:new '%t' \
+    -density 72 -format JPG -quality 80 'output/%[filename:new].jpg'
+}
