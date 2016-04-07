@@ -191,6 +191,7 @@ layers configuration."
   ;; Coffeescript specific tabbing requirements
   (custom-set-variables '(coffee-tab-width 2))
 
+  (setq eyebrowse-new-workspace nil)
   (global-set-key (kbd "s-0") 'eyebrowse-switch-to-window-config-0)
   (global-set-key (kbd "s-1") 'eyebrowse-switch-to-window-config-1)
   (global-set-key (kbd "s-2") 'eyebrowse-switch-to-window-config-2)
