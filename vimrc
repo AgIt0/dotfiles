@@ -123,7 +123,6 @@ map <Leader>f :call OpenFactoryFile()<CR>
 map <Leader>fix :cnoremap % %<CR>
 map <Leader>fa :sp test/factories.rb<CR>
 map <Leader>i mmgg=G`m<CR>
-map <Leader>j :CtrlP app/assets/javascripts<cr>client/
 map <Leader>j :CtrlP assets/src/js<cr>
 map <Leader>l oconsole.log 'debugging'<esc>:w<cr>
 map <Leader>m :Rmodel 
