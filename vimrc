@@ -78,6 +78,8 @@ Bundle 'derekwyatt/vim-scala'
 "Haskell
 Bundle 'vim-scripts/haskell.vim'
 
+"Javascript
+Bundle 'mtscout6/vim-cjsx'
 " ================
 " Ruby stuff
 " ================
