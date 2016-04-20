@@ -166,6 +166,7 @@ map <Leader>my :sp $MYVIMRC<cr>
 map <Leader>r :w<cr> :!ruby %<cr>
 map <Leader>rp :w<cr> :!python %<cr>
 map <Leader>op :call OpenFileFolder()<CR>
+map <Leader>nr :NERDTree<CR>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
@@ -175,7 +176,7 @@ map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
 
 map <C-h> :nohl<cr>
 imap <C-l> :<Space>
-map <C-s> <esc>:w<CR>
+map <C-s> :w<CR>
 imap <C-s> <esc>:w<CR>
 map <C-t> <esc>:tabnew<CR>
 map <C-x> <C-w>c
