@@ -12,11 +12,12 @@
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     ansible
      auto-completion
      colors
      dash
-     emacs-lisp
      elixir
+     emacs-lisp
      erlang
      eyebrowse
      git
@@ -30,18 +31,22 @@
      react
      ruby
      ruby-on-rails
-     syntax-checking
      spotify
+     syntax-checking
      (shell :variables
             shell-default-term-shell "/bin/zsh")
-     themes-megapack
      evil-commentary
-     version-control
-     unimpaired
-     yaml
      osx
+     themes-megapack
+     unimpaired
+     version-control
+     yaml
      )
-   dotspacemacs-additional-packages '(pow)
+   dotspacemacs-additional-packages
+   '(
+     pow
+     exec-path-from-shell
+     )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -144,7 +149,7 @@ before layers configuration."
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    dotspacemacs-smartparens-strict-mode nil
    ;; If non nil advises quit functions to keep server open when quitting.
-   dotspacemacs-persistent-server t
+   dotspacemacs-persistent-server nil
    ;; List of search tool executable names. Spacemacs uses the first installed
    ;; tool of the list. Supported tools are `ag', `pt', `ack' and `grep'.
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
@@ -198,6 +203,8 @@ layers configuration."
   (global-set-key (kbd "s-3") 'eyebrowse-switch-to-window-config-3)
   (global-set-key (kbd "s-4") 'eyebrowse-switch-to-window-config-4)
   (global-set-key (kbd "s-5") 'eyebrowse-switch-to-window-config-5)
+  (when (memq window-system '(mac ns))
+    (exec-path-from-shell-initialize))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
