@@ -93,8 +93,8 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 14
+   dotspacemacs-default-font '("Menlo"
+                               :size 15
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -205,6 +205,9 @@ layers configuration."
   (global-set-key (kbd "s-5") 'eyebrowse-switch-to-window-config-5)
   (when (memq window-system '(mac ns))
     (exec-path-from-shell-initialize))
+
+  (setq-default js2-basic-offset 2)
+  (setq-default js-indent-level 2)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
