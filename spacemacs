@@ -273,13 +273,25 @@ in `dotspacemacs/user-config'."
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+  (setq-default
+   standard-indent 2
+   tab-width 2
+   indent-tabs-mode nil
+   js-indent-level 2
+   js2-basic-offset 2
+   js2-strict-semi-warning nil
+   js2-missing-semi-one-line-override nil
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-indent-style 2
+   )
+
   (add-hook 'alchemist-mode-hook 'company-mode)
   (setq diff-hl-side 'left)
   (setq truncate-lines t)
   (setq truncate-lines t)
   (setq-default indent-tabs-mode nil)
-  (setq-default tab-width 2)
-  (setq-default c-basic-offset 2)
   (setq indent-line-function 'insert-tab)
   ;;linum
   (linum-relative-global-mode)
@@ -308,15 +320,15 @@ layers configuration. You are free to put any user code."
     (exec-path-from-shell-initialize))
 
   ;; remap ex-mode `q` to kill the current layout and exit if none
-  (evil-ex-define-cmd "q[uit]" 'kill-or-persp-kill)
-  (defun kill-or-persp-kill ()
-    (interactive)
-    (if (> (length (persp-names-current-frame-fast-ordered)) 1)
-      (spacemacs/layouts-ms-kill)
-      (evil-quit)))
+  ;; (evil-ex-define-cmd "q[uit]" 'kill-or-persp-kill)
+  ;; (defun kill-or-persp-kill ()
+  ;;   (interactive)
+  ;;   (if (> (length (persp-names-current-frame-fast-ordered)) 1)
+  ;;     (spacemacs/layouts-ms-kill)
+  ;;     (evil-quit)))
 
-  (setq-default js2-basic-offset 2)
-  (setq-default js-indent-level 2)
+  ;; use jade mode for stylus
+  (add-to-list 'auto-mode-alist '("\\.styl\\'" . jade-mode))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
