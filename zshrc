@@ -62,11 +62,14 @@ export PATH=/usr/local/bin:bin:~/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/l
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/usr/texbin
 PATH=$PATH:~/bin # Elixir
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+# export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 export EDITOR=/usr/bin/vim
 
 export PATH="$HOME/bin:$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
+
+# rust
+source $HOME/.cargo/env
 
 #nvm
 export NVM_DIR=~/.nvm
@@ -76,7 +79,12 @@ source $(brew --prefix nvm)/nvm.sh
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 
-. ~/play/z/z.sh
+eval "$(jump shell --bind=z)"
+
+# fzf
+export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!{.git,node_modules}/*"'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # DO NOT EDIT BELOW THIS LINE
 
 # setopt promptsubst
@@ -85,4 +93,3 @@ export LANG=en_US.UTF-8
 # promptinit
 # 
 # prompt grb
-eval $(thefuck --alias)

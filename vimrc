@@ -25,6 +25,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-dispatch'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'koron/nyancat-vim'
 Bundle 'vim-scripts/ruby-matchit'
@@ -35,56 +36,12 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'AndrewRadev/ack.vim'
 Bundle 'vim-scripts/ScrollColors'
 Bundle 'ngmy/vim-rubocop'
-
-
-"statusline stuff
-Bundle 'bling/vim-airline'
-Bundle 'edkolev/tmuxline.vim'
-
-"notes
-Bundle 'xolox/vim-notes'
-Bundle 'xolox/vim-misc'
-
-"colorschemes
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'nelstrom/vim-blackboard'
-Bundle 'tomasr/molokai'
-Bundle 'croaky/vim-colors-github'
-Bundle 'jnurmine/Zenburn'
-Bundle 'sjl/badwolf'
-
-"php
-Bundle 'vim-scripts/php.vim-html-enhanced.git'
-
-" Clojure
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-classpath'
-Bundle 'guns/vim-clojure-static'
-Bundle 'kien/rainbow_parentheses.vim'
-
-
-"Elixir
-Bundle 'elixir-lang/vim-elixir'
-
-"Io
-Bundle 'andreimaxim/vim-io'
-
-"Prolog
-Bundle 'adimit/prolog.vim'
-
-"Scala
-Bundle 'derekwyatt/vim-scala'
-
-"Haskell
-Bundle 'vim-scripts/haskell.vim'
-
-"Javascript
-Bundle 'mtscout6/vim-cjsx'
-" ================
-" Ruby stuff
-" ================
-syntax on                 " Enable syntax highlighting
-filetype plugin indent on " Enable filetype-specific indenting and plugins
+Bundle 'junegunn/vim-github-dashboard'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'wavded/vim-stylus'
+Bundle 'mattn/gist-vim'
+Bundle 'rust-lang/rust.vim'
+Bundle 'junegunn/fzf.vim'
 
 augroup myfiletypes
   " Clear old autocmds in group
@@ -130,6 +87,7 @@ map <Leader>nn :sp ~/Dropbox/notes/programming_notes.txt<cr>
 map <Leader>o :call RunCurrentLineInTest()<CR>
 map <Leader>p :set paste<CR>"*]p:set nopaste<cr>
 map <Leader>P :set paste<CR>"*]P:set nopaste<cr>
+map <leader>po :!eval "$(rbenv init -)" && cd && thyme -d && cd -<CR><CR>
 map <Leader>pn :sp ~/Dropbox/work/thoughtbot/notes/project-notes.txt<cr>
 map <Leader>ra :%s/
 map <Leader>rd :!bundle exec rspec % --format documentation<CR>
@@ -167,6 +125,8 @@ map <Leader>r :w<cr> :!ruby %<cr>
 map <Leader>rp :w<cr> :!python %<cr>
 map <Leader>op :call OpenFileFolder()<CR>
 map <Leader>nr :NERDTree<CR>
+map <Leader>fm :RustFmt<CR>
+map <Leader>rb :!bundle exec rubocop %<CR>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
@@ -206,7 +166,7 @@ set guifont=Triskweline_10:h10
 set et
 set sw=2
 set smarttab
-set noincsearch
+set incsearch
 set ignorecase smartcase
 set laststatus=2  " Always show status line.
 set relativenumber
@@ -222,7 +182,7 @@ set tags=./tags;
 
 " Use Silver Searcher instead of grep
 " set grepprg=ack-grep\ -a
-set grepprg=ag
+set grepprg=ag\ --ignore-dir=tags
 
 " Get rid of the delay when hitting esc!
 set noesckeys
@@ -236,8 +196,8 @@ let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;
 " Highlight the status line
 highlight StatusLine ctermfg=blue ctermbg=yellow
 
-" Format xml files
-au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null" 
+" " Format xml files
+" au FileType xml exe ":silent 1,$!xmllint --format --recover - 2>/dev/null" 
 
 set shiftround " When at 3 spaces and I hit >>, go to 4, not 5.
 
@@ -465,9 +425,15 @@ au WinLeave * set nocursorline
 au WinEnter * set cursorline
 
 "ctrlp for the win
-let g:ctrlp_map = '<Leader>h'
+" let g:ctrlp_map = '<Leader>h'
 let g:ctrlp_match_window = 'top,order:btt,min:1,max:20'
 let g:ctrlp_show_hidden = 1
+
+"fzf
+set rtp+=/usr/local/opt/fzf
+let g:fzf_layout = { 'up': '~50%' }
+map <Leader>h :Files<CR>
+command! -bang -nargs=* Find call fzf#vim#grep('/usr/bin/rg --column --line-number --no-heading --fixed-strings --ignore-case -ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
 "notes
 let g:notes_directories = ['~/notes']
@@ -487,6 +453,8 @@ let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#hunks#non_zero_only = 1
 "set hunk count symbols.
 let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
+let g:airline#extensions#tmuxline#enabled = 0
+
 
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -510,3 +478,19 @@ let g:rbpt_colorpairs = [
 let g:rbpt_max = 16
 
 let g:vimrubocop_config = '~/.rubocop.yml'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|bower_components|changelog)$'
+let g:rustfmt_autosave = 1
+
+nnoremap <Leader>H :call<SID>LongLineHLToggle()<cr>
+hi OverLength ctermbg=none cterm=none
+match OverLength /\%>80v/
+fun! s:LongLineHLToggle()
+ if !exists('w:longlinehl')
+  let w:longlinehl = matchadd('ErrorMsg', '.\%>80v', 0)
+  echo "Long lines highlighted"
+ else
+  call matchdelete(w:longlinehl)
+  unl w:longlinehl
+  echo "Long lines unhighlighted"
+ endif
+endfunction
